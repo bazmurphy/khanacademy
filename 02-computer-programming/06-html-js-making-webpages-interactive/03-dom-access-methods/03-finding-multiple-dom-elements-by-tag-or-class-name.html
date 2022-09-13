@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Finding multiple DOM elements by tag or class name</title>
+</head>
+
+<body>
+
+  <h1 id="heading">All about dogs</h1>
+
+  <p>The domestic <span class="animal">dog</span> is known as man's best friend. The <span class="animal">dog</span> was
+    the first domesticated animal and has been widely kept as a working, hunting, and pet companion. According to recent
+    coarse estimates, there are currently between 700 million and one billion <span class="animal">dog</span>s, making
+    them the most abundant predators in the world. <a href="http://en.wikipedia.org/wiki/Dog">Read more on
+      Wikipedia</a>.</p>
+
+  <img src="https://www.kasandbox.org/programming-images/animals/dog_sleeping-puppy.png" height="150">
+
+  <img src="https://www.kasandbox.org/programming-images/animals/dogs_collies.png" height="150">
+
+  <script>
+    const headingEl = document.getElementById("heading");
+    headingEl.innerHTML = "All about cats";
+    
+    const nameEls = document.getElementsByTagName("span");
+    console.log(nameEls);
+    // HTMLCollection { 0: span.animal, 1: span.animal, 2: span.animal, length: 3 }
+    console.log(nameEls[0]);
+    // <span class="animal">
+    // namesEls.innerHTML = "cats";
+    // we cannot do this because we are setting innerHTML on the ARRAY of elements, so the Browser IGNORES it
+    for (let i = 0; i < nameEls.length; i++) {
+      nameEls[i].innerHTML = "cat";
+    }
+    // we have to set each individual item in the ARRAY of elements by looping over it
+    
+    // HOWEVER if there were other span tags on the page it would change those also...
+    // So it is better to select the spans by their class
+
+    var animalEls = document.getElementsByClassName("animal");
+    // getElementsByClassName returns a HTML COLLECTION
+    console.log(animalEls);
+    // HTMLCollection { 0: span.animal, 1: span.animal, 2: span.animal, length: 3 }
+
+    console.log(animalEls[0]);
+    // <span class="animal">
+    
+    for (let i = 0; i < animalEls.length; i++) {
+      nameEls[i].innerHTML = "cat";
+    }
+  </script>
+
+</body>
+
+</html>

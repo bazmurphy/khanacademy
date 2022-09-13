@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Challenge: Custom name tags</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .name-tag {
+      border: 1px solid red;
+      border-radius: 6px;
+      width: 300px;
+      height: 150px;
+      margin-bottom: 10px;
+      background: red;
+      font-family: sans-serif;
+    }
+
+    .name-tag h1 {
+      color: white;
+      text-align: center;
+      height: 25px;
+      margin: 5px 0px 0px 0px;
+      font-size: 20px;
+    }
+
+    .name-tag p {
+      position: relative;
+      left: 5px;
+      padding: 10px;
+      width: 290px;
+      height: 90px;
+      background: white;
+      font-family: cursive;
+      font-size: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="name-tag">
+    <h1>Hello, my name is...</h1>
+    <p>Grace Hopper</p>
+  </div>
+
+  <div class="name-tag">
+    <h1>Hello, my name is...</h1>
+    <p>Alan Turing</p>
+  </div>
+
+  <script>
+    // This webpage uses divs to create name tags for a few famous computer scientists.
+    // In this challenge, you'll use JavaScript to change the text of all the h1s in the name tags.
+    // In this first step, use document.getElementsByTagName to find all the headings, and store them in a variable.
+
+    const h1Elements = document.getElementsByTagName("h1");
+    // getElementsByTagName RETURNS an HTML COLLECTION
+    console.log(h1Elements);
+    // HTMLCollection { 0: h1, 1: h1, length: 2 }
+    console.log(h1Elements[0]);
+    // <h1>
+      
+    // Now that you've stored the headings in variables, 
+    // use a for loop to iterate over them and change the text to something else, like 'Hello, world' or 'Allo'.
+    for (let i = 0; i < h1Elements.length; i++) {
+      h1Elements[i].innerHTML = "Hello, world";
+    }
+  </script>
+</body>
+</html>

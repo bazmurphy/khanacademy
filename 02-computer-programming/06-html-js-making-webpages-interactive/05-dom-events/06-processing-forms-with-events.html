@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Processing forms with events</title>
+</head>
+
+<body>
+  <div>
+    <label>What's your name?
+      <input id="name" type="text">
+    </label>
+    <br>
+    <label>What language do you speak?
+      <select id="lang">
+        <option value="en">English</option>
+        <option value="es">Spanish</option>
+        <option value="plt">Pig-latin</option>
+      </select>
+    </label>
+    <br>
+    <button id="button" type="button">Greet me, please!</button>
+    <div id="message"></div>
+  </div>
+
+  <script>
+    // Step 1: Find the element we want the event on
+    var button = document.getElementById("button");
+    // Step 2: Define the event listener function
+    var onButtonClick = function () {
+      // var name = document.getElementById("name");
+      // this is the ENTIRE element object.. not just what the user typed in
+      var name = document.getElementById("name").value;
+      // so we need to add ".value" to get the value from the input element
+      // ITS VERY IMPORTANT TO GET THIS VALUE WHEN the button is clicked
+      // NOT BEFORE (on page load for example) otherwise it will be an empty string
+      // so this line HAS TO BE INSIDE THE EVENT LISTENER FUNCTION
+
+      var lang = document.getElementById("lang").value;
+
+      var greeting;
+      if (lang === "es") {
+        greeting = "Hola, " + name;
+      } else if (lang === "plt") {
+        greeting = "Ello-hay, " + name;
+      } else {
+        greeting = "Heyaz, " + name;
+      }
+      document.getElementById("message").textContent += greeting;
+      
+    };
+    // Step 3: Attach event listener to element
+    button.addEventListener("click", onButtonClick);
+  </script>
+
+</body>
+
+</html>

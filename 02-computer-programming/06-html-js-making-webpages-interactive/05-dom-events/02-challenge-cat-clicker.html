@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Challenge: Cat Clicker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Pet me!</h2>
+  <img id="cat-pic" src="https://www.kasandbox.org/programming-images/animals/thumbs/cat.png">
+  <br>
+
+  <div id="cat-chat"></div>
+
+  <script>
+  // In this challenge, you'll make it so the user (you!) can pet the cat and see it meow. 
+  // In this first step, find the cat image element and store it in a variable.    
+  var catImageElement = document.getElementById("cat-pic");
+  // Now, define a callback function that changes the inner text of the 'cat-chat' div to say 'Meow', or whatever you think cats say when you pet them.
+  var functionToRunWhenClicked = function () {
+    document.getElementById("cat-chat").textContent = "Meow";
+  }
+  // Finally, assign the callback function as the event listener for the 'click' event for the cat image.
+  catImageElement.addEventListener("click", functionToRunWhenClicked);
+  </script>
+</body>
+
+</html>
